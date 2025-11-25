@@ -22,3 +22,5 @@
     </p>
    </p>
 </p>
+
+This repo is a technical practice of using **R**emote **S**ensing data to **Co**llaboratively train Large **V**ision **L**anguage **M**odels and hosts the official implementation of the paper: **Co-Training Vision Language Models for Remote Sensing Multi-task Learning**.
