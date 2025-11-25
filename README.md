@@ -43,7 +43,7 @@ We may update the codebase, the commit log is [here](https://github.com/VisionXL
 If you have installed the previous version and would like to update to the latest version, you can:
 ```
 cd RSCoVLM
-git pull origin master  # if you have modification, commit your changes and merge the branches
+git pull origin main  # if you have modification, commit your changes and merge the branches
 pip install -e .
 ```
 
