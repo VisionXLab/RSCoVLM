@@ -25,6 +25,21 @@
 
 This repo is a technical practice of using **R**emote **S**ensing data to **Co**llaboratively train Large **V**ision **L**anguage **M**odels and hosts the official implementation of the paper: **Co-Training Vision Language Models for Remote Sensing Multi-task Learning**.
 
+## Abstract
+
+<img width="3559" height="1512" alt="fig_method" src="https://github.com/user-attachments/assets/cb57f16c-9b9c-4f4c-beaa-86a6c2b1836b" />
+
+With Transformers achieving outstanding performance on individual remote sensing (RS) tasks, we are now approaching the realization of a unified model that excels across multiple tasks through multi-task learning (MTL).
+Compared to single-task approaches, MTL methods offer improved generalization, enhanced scalability, and greater practical applicability.
+Recently, vision language models (VLMs) have achieved promising results in RS image understanding, grounding, and ultra-high-resolution (UHR) image reasoning, respectively. Moreover, the unified text-based interface demonstrates significant potential for MTL.
+Hence, in this work, we present RSCoVLM, a simple yet flexible VLM baseline for RS MTL.
+Firstly, we create the data curation engine, including data acquisition, offline processing and integrating, as well as online loading and weighting. This data engine effectively addresses complex RS data enviroment and generates flexible vision-language conversations.
+Furthermore, we propose a unified dynamic-resolution strategy to address the diverse image scales inherent in RS imagery. For UHR images, we introduce the Zoom-in Chain mechanism together with its corresponding dataset, LRS-VQA-Zoom. The strategies are flexible and effectively mitigate the computational burdens.
+Additionally, we significantly enhance the model’s object detection capability and propose a novel evaluation protocol that ensures fair comparison between VLMs and conventional detection models. 
+Extensive experiments demonstrate that RSCoVLM achieves state-of-the-art performance across diverse tasks, outperforming existing RS VLMs and even rivaling specialized expert models. 
+All the training and evaluating tools, model weights, and datasets have been fully open-sourced to support reproducibility. 
+We expect that this baseline will promote further progress toward general-purpose RS models.
+
 ## Get Started
 
 First, refer to [Enviroment.md](Enviroment.md) to prepare an enviroment.
