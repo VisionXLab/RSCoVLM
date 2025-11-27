@@ -14,7 +14,7 @@
       <a href='https://yangxue0827.github.io/' style='text-decoration: none' >Xue Yang</a><sup></sup>&emsp;
       <a href='https://thinklab.sjtu.edu.cn/' style='text-decoration: none' >Junchi Yan</a><sup></sup>&emsp;
       <div align="center">
-      <a href='https://github.com/VisionXLab'><img src='https://img.shields.io/badge/arXiv-2501.09720-brown.svg?logo=arxiv&logoColor=white'></a>
+      <a href='http://arxiv.org/abs/2511.21272'><img src='https://img.shields.io/badge/arXiv-2511.21272-brown.svg?logo=arxiv&logoColor=white'></a>
       <a href='https://github.com/VisionXLab'><img src='https://img.shields.io/badge/HuggingFace-Model-yellow.svg?logo=HuggingFace&logoColor=white'></a>
 	  </div>
     <p align='center'>
