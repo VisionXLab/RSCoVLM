@@ -19,7 +19,7 @@
       <a href='https://thinklab.sjtu.edu.cn/' style='text-decoration: none' >Junchi Yan</a><sup></sup>&emsp;
       <div align="center">
       <a href='http://arxiv.org/abs/2511.21272'><img src='https://img.shields.io/badge/arXiv-2511.21272-brown.svg?logo=arxiv&logoColor=white'></a>
-      <a href='https://github.com/VisionXLab'><img src='https://img.shields.io/badge/HuggingFace-Model-yellow.svg?logo=HuggingFace&logoColor=white'></a>
+      <a href='https://huggingface.co/collections/Qingyun/rscovlm'><img src='https://img.shields.io/badge/HuggingFace-Model-yellow.svg?logo=HuggingFace&logoColor=white'></a>
 	  </div>
     <p align='center'>
         If you find our work helpful, please consider giving us a ⭐!
@@ -79,11 +79,16 @@ If you find our paper or benchmark helpful for your research, please consider ci
 > The manuscript has been submmitted at 2026.11.14, and has not been accepted.
 
 ```bibtex
-@article{TODO}
+@article{li2025rscovlm,
+  title={Co-Training Vision Language Models for Remote Sensing Multi-task Learning}, 
+  author={Qingyun Li and Shuran Ma and Junwei Luo and Yi Yu and Yue Zhou and Fengxiang Wang and Xudong Lu and Xiaoxing Wang and Xin He and Yushi Chen and Xue Yang and Junchi Yan},
+  journal={arXiv preprint arXiv:2511.21272},
+  year={2025},
+}
 
 @article{li2025lmmrotate,
   title={A Simple Aerial Detection Baseline of Multimodal Language Models},
-  author={Li, Qingyun and Chen, Yushi and Shu, Xinya and Chen, Dong and He, Xin and Yu Yi and Yang, Xue },
+  author={Li, Qingyun and Chen, Yushi and Shu, Xinya and Chen, Dong and He, Xin and Yu Yi and Yang, Xue},
   journal={arXiv preprint arXiv:2501.09720},
   year={2025}
 }
