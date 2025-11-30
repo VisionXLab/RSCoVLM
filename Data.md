@@ -66,7 +66,12 @@ If there are any concerns regarding potential copyright infringement in the rele
 ## Cite
 
 ```
-@article{TODO}
+@article{li2025rscovlm,
+  title={Co-Training Vision Language Models for Remote Sensing Multi-task Learning}, 
+  author={Qingyun Li and Shuran Ma and Junwei Luo and Yi Yu and Yue Zhou and Fengxiang Wang and Xudong Lu and Xiaoxing Wang and Xin He and Yushi Chen and Xue Yang and Junchi Yan},
+  journal={arXiv preprint arXiv:2511.21272},
+  year={2025},
+}
 
 @article{li2025lmmrotate,
   title={A Simple Aerial Detection Baseline of Multimodal Language Models},
