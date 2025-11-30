@@ -76,7 +76,7 @@ The code is based on [Transformers](https://github.com/huggingface/transformers)
 
 If you find our paper or benchmark helpful for your research, please consider citing our paper and giving this repo a star ⭐. Thank you very much!
 
-> The manuscript has been submmitted at 2026.11.14, and has not been accepted.
+> The manuscript has been submmitted at 2026.11.14, and is undergoing review.
 
 ```bibtex
 @article{li2025rscovlm,
