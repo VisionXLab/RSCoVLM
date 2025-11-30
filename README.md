@@ -19,7 +19,7 @@
       <a href='https://thinklab.sjtu.edu.cn/' style='text-decoration: none' >Junchi Yan</a><sup></sup>&emsp;
       <div align="center">
       <a href='http://arxiv.org/abs/2511.21272'><img src='https://img.shields.io/badge/arXiv-2511.21272-brown.svg?logo=arxiv&logoColor=white'></a>
-      <a href='https://huggingface.co/collections/Qingyun/rscovlm'><img src='https://img.shields.io/badge/HuggingFace-Model-yellow.svg?logo=HuggingFace&logoColor=white'></a>
+      <a href='https://huggingface.co/collections/Qingyun/rscovlm'><img src='https://img.shields.io/badge/HuggingFace-Collection-yellow.svg?logo=HuggingFace&logoColor=white'></a>
 	  </div>
     <p align='center'>
         If you find our work helpful, please consider giving us a ⭐!
