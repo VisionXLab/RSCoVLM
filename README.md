@@ -16,7 +16,6 @@
       <a href='https://scholar.google.com/citations?user=WQgE8l8AAAAJ' style='text-decoration: none' >Xin He</a><sup></sup>&emsp;
       <a href='https://scholar.google.com/citations?user=A39S7JgAAAAJ' style='text-decoration: none' >Yushi Chen</a><sup></sup>&emsp;
       <a href='https://yangxue0827.github.io/' style='text-decoration: none' >Xue Yang</a><sup></sup>&emsp;
-      <a href='https://thinklab.sjtu.edu.cn/' style='text-decoration: none' >Junchi Yan</a><sup></sup>&emsp;
       <div align="center">
       <a href='http://arxiv.org/abs/2511.21272'><img src='https://img.shields.io/badge/arXiv-2511.21272-brown.svg?logo=arxiv&logoColor=white'></a>
       <a href='https://huggingface.co/collections/Qingyun/rscovlm'><img src='https://img.shields.io/badge/HuggingFace-Collection-yellow.svg?logo=HuggingFace&logoColor=white'></a>
@@ -79,17 +78,27 @@ If you find our paper or benchmark helpful for your research, please consider ci
 > The manuscript has been submmitted at 2026.11.14, and is undergoing review.
 
 ```bibtex
-@article{li2025rscovlm,
-  title={Co-Training Vision Language Models for Remote Sensing Multi-task Learning}, 
-  author={Qingyun Li and Shuran Ma and Junwei Luo and Yi Yu and Yue Zhou and Fengxiang Wang and Xudong Lu and Xiaoxing Wang and Xin He and Yushi Chen and Xue Yang and Junchi Yan},
-  journal={arXiv preprint arXiv:2511.21272},
-  year={2025},
+
+@ARTICLE{li2026rscovlm,
+  author={Li, Qingyun and Ma, Shuran and Luo, Junwei and Yu, Yi and Zhou, Yue and Wang, Fengxiang and Lu, Xudong and Wang, Xiaoxing and He, Xin and Chen, Yushi and Yang, Xue},
+  title{Co-Training Vision-Language Models for Remote Sensing Multi-Task Learning},
+  journal={Remote Sensing},
+  volume={18},
+  year={2026},
+  number={2},
+  article-number={222},
+  url={https://www.mdpi.com/2072-4292/18/2/222},
+  issn={2072-4292},
+  doi={10.3390/rs18020222}
 }
 
-@article{li2025lmmrotate,
-  title={A Simple Aerial Detection Baseline of Multimodal Language Models},
-  author={Li, Qingyun and Chen, Yushi and Shu, Xinya and Chen, Dong and He, Xin and Yu Yi and Yang, Xue},
-  journal={arXiv preprint arXiv:2501.09720},
-  year={2025}
+@INPROCEEDINGS{11242725,
+  author={Li, Qingyun and He, Xin and Shu, Xinya and Yu, Yi and Chen, Dong and Chen, Yushi and Yang, Xue},
+  booktitle={IGARSS 2025 - 2025 IEEE International Geoscience and Remote Sensing Symposium}, 
+  title={A Simple Aerial Detection Baseline of Multimodal Language Models}, 
+  year={2025},
+  pages={6833-6837},
+  doi={10.1109/IGARSS55030.2025.11242725}
 }
+
 ```
