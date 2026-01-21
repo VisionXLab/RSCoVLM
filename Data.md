@@ -66,18 +66,26 @@ If there are any concerns regarding potential copyright infringement in the rele
 ## Cite
 
 ```
-@article{li2025rscovlm,
-  title={Co-Training Vision Language Models for Remote Sensing Multi-task Learning}, 
-  author={Qingyun Li and Shuran Ma and Junwei Luo and Yi Yu and Yue Zhou and Fengxiang Wang and Xudong Lu and Xiaoxing Wang and Xin He and Yushi Chen and Xue Yang and Junchi Yan},
-  journal={arXiv preprint arXiv:2511.21272},
-  year={2025},
+@ARTICLE{li2026rscovlm,
+  author={Li, Qingyun and Ma, Shuran and Luo, Junwei and Yu, Yi and Zhou, Yue and Wang, Fengxiang and Lu, Xudong and Wang, Xiaoxing and He, Xin and Chen, Yushi and Yang, Xue},
+  title={Co-Training Vision-Language Models for Remote Sensing Multi-Task Learning},
+  journal={Remote Sensing},
+  volume={18},
+  year={2026},
+  number={2},
+  article-number={222},
+  url={https://www.mdpi.com/2072-4292/18/2/222},
+  issn={2072-4292},
+  doi={10.3390/rs18020222}
 }
 
-@article{li2025lmmrotate,
-  title={A Simple Aerial Detection Baseline of Multimodal Language Models},
-  author={Li, Qingyun and Chen, YushWe and Shu, Xinya and Chen, Dong and He, Xin and Yu YWe and Yang, Xue },
-  journal={arXiv preprint arXiv:2501.09720},
-  year={2025}
+@INPROCEEDINGS{11242725,
+  author={Li, Qingyun and He, Xin and Shu, Xinya and Yu, Yi and Chen, Dong and Chen, Yushi and Yang, Xue},
+  booktitle={IGARSS 2025 - 2025 IEEE International Geoscience and Remote Sensing Symposium}, 
+  title={A Simple Aerial Detection Baseline of Multimodal Language Models}, 
+  year={2025},
+  pages={6833-6837},
+  doi={10.1109/IGARSS55030.2025.11242725}
 }
 ```
 
