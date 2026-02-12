@@ -55,6 +55,132 @@ find . -type f -name "*.tar.gz*" -print
 find . -type f -name "*.tar.gz*" -exec rm -f {} \;
 ```
 
+## Data Format
+
+We support both the LLaVA-style `conversations` format and Qwen-style openai-like `messages` format:
+
+### `Conversations`
+- Each training sample of the `conversations` format data is a data dict:
+
+Your annotation file should follow one of the two formats below:
+
+1. Single-image example (json or jsonl entry):
+
+```json
+{
+  "image": "images/001.jpg",
+  "source_dataset": "sub_dataset", 
+  "conversations": [
+    {
+      "from": "human",
+      "value": "<image>\nWhat's the main object in this picture?"
+    },
+    {
+      "from": "gpt",
+      "value": "A red apple on a wooden table"
+    }
+  ]
+}
+
+```
+
+2. Multi-image example:
+```json
+{
+  "images": ["cats/001.jpg", "cats/002.jpg"], 
+  "source_dataset": ["sub_dataset1", "sub_dataset2"],
+  "conversations": [
+    {
+      "from": "human",
+      "value": "<image>\n<image>\nWhat are the differences between these two cats?"
+    },
+    {
+      "from": "gpt",
+      "value": "The first cat is an orange tabby with short fur and green eyes, while the second is a gray Siamese with blue eyes and pointed coloration. They also appear to be in different environments - the first is indoors on a couch, the second is outdoors in a garden."
+    }
+  ]
+}
+```
+> NOTE: Only local path is support for tha image.
+
+### `messages`
+- Each training sample of the `messages` format data is a data list:
+
+1. Single-image example (json or jsonl entry):
+```json
+[
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "image",
+                "image": "https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-VL/assets/demo.jpeg",
+            },
+            {"type": "text", "text": "Describe this image."},
+        ],
+    }
+]
+```
+
+2. Multi-image example:
+```json
+[
+    {
+        "role": "user",
+        "content": [
+            {"type": "image", "image": "file:///path/to/image1.jpg"},
+            {"type": "image", "image": "file:///path/to/image2.jpg"},
+            {"type": "text", "text": "Identify the similarities between these images."},
+        ],
+    },
+    {"role": "assistant", "content": "They are the same."},
+]
+```
+
+## Config data
+
+We support three manners to let the program know what data you want to train with.
+
+### pass `--image_folder` and `--data_path`
+
+- You can pass the annotation json/jsonl to `--data_path` and the corresponding image folder path to `--image_folder`
+- You can pass multiple `--image_folder` and `--data_path`, the number should be equal
+- You can only use `SupervisedDatasetForQwen2_5_VL` in this mode.
+
+### register as buildin datasets
+
+You can register the usual datasets as buildin datasets
+
+- Step 1: Register Your Dataset
+
+Open the file: `rscoagent/training/data/config.py`
+
+Add a dictionary describing your dataset, including both the annotation file and the image root path:
+
+```python
+YOUR_DATASET = {
+    "annotation_path": "/absolute/path/to/your_dataset/annotations.json",
+    "data_path": "/absolute/path/to/your_dataset/images/",
+}
+```
+Then register it in data_dict:
+
+```python
+data_dict = {
+    "your_dataset": YOUR_DATASET,
+    # other pre-defined datasets...
+}
+```
+
+- Step 2: pass the name of your dataset to `--datasets`
+- You can pass multiple dataset names, a `ConcatDataset` may be built.
+- Use "dataset_name%N" to sample N% of the data.
+- For refgeo_* datasets, make sure the 'dataset_type' is set in data config.
+
+### pass a json/yaml config file to `--datasets`
+
+You can also write a json/yaml config file to be a replacement of the data config.
+
 ## Statement and ToU
 
 We release the data under a CC-BY-4.0 license, with the primary intent of supporting research activities. 
