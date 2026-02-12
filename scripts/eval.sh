@@ -1,18 +1,18 @@
 export TRITON_CACHE_DIR="/tmp/triton_rscovlm/"
 
-torchrun ${distributed_args} -m rscoagent.eval.run \
+torchrun ${distributed_args} -m rscovlm.eval.run \
     --benchmarks dota_test512 \
     --use_vllm \
     --model_ckpt_path ${@:1}
 
-torchrun ${distributed_args} -m rscoagent.eval.run \
+torchrun ${distributed_args} -m rscovlm.eval.run \
     --benchmarks \
     lrsvqa lrsvqa_visual_cot \
     mme_realworld_remote_sensing mme_realworld_remote_sensing_visual_cot \
     --batch_size 1 \
     --model_ckpt_path ${@:1}
 
-torchrun ${distributed_args} -m rscoagent.eval.run \
+torchrun ${distributed_args} -m rscovlm.eval.run \
     --benchmarks \
     teochatlas_geochat \
     cls_aid \
@@ -25,7 +25,7 @@ torchrun ${distributed_args} -m rscoagent.eval.run \
     --model_ckpt_path ${@:1}
 
 torchrun $distributed_args \
-    -m rscoagent.eval.run \
+    -m rscovlm.eval.run \
     --benchmarks geoground_224 geoground_336 geoground_448 geoground_1008 geoground \
     --use_vllm \
     --model_ckpt_path \

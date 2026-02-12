@@ -21,7 +21,7 @@ set -x
 
 ACCELERATE_CPU_AFFINITY=1 torchrun --nnodes=${NNODES} --nproc-per-node=8 \
     --nproc-per-node=8 --nnodes=${NNODES} \
-    -m rscoagent.training.train \
+    -m rscovlm.training.train \
     --model_id Qwen/Qwen2.5-VL-3B-Instruct \
     --datasets dota_poly_trainval512 \
     --min_pixels $((MIN_PIXELS * 28 * 28)) \

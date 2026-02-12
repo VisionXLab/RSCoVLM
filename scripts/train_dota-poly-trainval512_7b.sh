@@ -23,8 +23,8 @@ set -x
 
 ACCELERATE_CPU_AFFINITY=1 torchrun --nnodes=${NNODES} --nproc-per-node=8 \
     --nproc-per-node=8 --nnodes=${NNODES} \
-    -m rscoagent.training.train \
-    --deepspeed rscoagent/config/internvl/zero_stage${ZERO_STAGE}_config.json \
+    -m rscovlm.training.train \
+    --deepspeed rscovlm/config/internvl/zero_stage${ZERO_STAGE}_config.json \
     --gradient_checkpointing_kwargs '{"use_reentrant": false}' \
     --model_id Qwen/Qwen2.5-VL-7B-Instruct \
     --datasets dota_poly_trainval512 \

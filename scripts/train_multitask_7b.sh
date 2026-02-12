@@ -22,11 +22,11 @@ set -x
 
 ACCELERATE_CPU_AFFINITY=1 torchrun \
     --nproc-per-node=8 --nnodes=${NNODES} \
-    -m rscoagent.training.train \
-    --deepspeed rscoagent/config/internvl/zero_stage${ZERO_STAGE}_config.json \
+    -m rscovlm.training.train \
+    --deepspeed rscovlm/config/internvl/zero_stage${ZERO_STAGE}_config.json \
     --gradient_checkpointing_kwargs '{"use_reentrant": false}' \
     --model_id Qwen/Qwen2.5-VL-7B-Instruct \
-    --datasets rscoagent/config/data.json \
+    --datasets rscovlm/config/data.json \
     --min_pixels $((MIN_PIXELS * 28 * 28)) \
     --max_pixels $((MAX_PIXELS * 28 * 28)) \
     --prob_proxy_prompt 0 \
