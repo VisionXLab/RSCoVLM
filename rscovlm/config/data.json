@@ -1,0 +1,11 @@
+[
+    "processed_geochat_from_teochatlas*6",
+    "vhm_dataset*8",
+    "teochatlas_video",
+    "llava_onevision_vl%10",
+    "refgeo_poly*1",
+    "refgeo_hbb*1",
+    "dota_poly_trainval512*25", 
+    "dota_hbb_trainval512*1", 
+    "lrsvqa_train_visual_cot*2"
+]
