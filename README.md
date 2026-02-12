@@ -67,11 +67,157 @@ bash scripts/train_dota-poly-trainval512_7b.sh
 bash scripts/eval.sh
 ```
 
+### Data Format
+
+We support both the LLaVA-style `conversations` format and Qwen-style openai-like `messages` format:
+
+- Each training sample of the `conversations` format data is a data dict:
+
+Your annotation file should follow one of the two formats below:
+
+1. Single-image example (json or jsonl entry):
+
+```json
+{
+  "image": "images/001.jpg",
+  "source_dataset": "sub_dataset", 
+  "conversations": [
+    {
+      "from": "human",
+      "value": "<image>\nWhat's the main object in this picture?"
+    },
+    {
+      "from": "gpt",
+      "value": "A red apple on a wooden table"
+    }
+  ]
+}
+
+```
+
+2. Multi-image example:
+```json
+{
+  "images": ["cats/001.jpg", "cats/002.jpg"], 
+  "source_dataset": ["sub_dataset1", "sub_dataset2"],
+  "conversations": [
+    {
+      "from": "human",
+      "value": "<image>\n<image>\nWhat are the differences between these two cats?"
+    },
+    {
+      "from": "gpt",
+      "value": "The first cat is an orange tabby with short fur and green eyes, while the second is a gray Siamese with blue eyes and pointed coloration. They also appear to be in different environments - the first is indoors on a couch, the second is outdoors in a garden."
+    }
+  ]
+}
+```
+> NOTE: Only local path is support for tha image.
+
+- Each training sample of the `messages` format data is a data list:
+
+1. Single-image example (json or jsonl entry):
+```json
+[
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "image",
+                "image": "https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-VL/assets/demo.jpeg",
+            },
+            {"type": "text", "text": "Describe this image."},
+        ],
+    }
+]
+```
+
+2. Multi-image example:
+```json
+[
+    {
+        "role": "user",
+        "content": [
+            {"type": "image", "image": "file:///path/to/image1.jpg"},
+            {"type": "image", "image": "file:///path/to/image2.jpg"},
+            {"type": "text", "text": "Identify the similarities between these images."},
+        ],
+    },
+    {"role": "assistant", "content": "They are the same."},
+]
+```
+
+### Config data
+
+We support three manners to let the program know what data you want to train with.
+
+#### pass `--image_folder` and `--data_path`
+
+- You can pass the annotation json/jsonl to `--data_path` and the corresponding image folder path to `--image_folder`
+- You can pass multiple `--image_folder` and `--data_path`, the number should be equal
+- You can only use `SupervisedDatasetForQwen2_5_VL` in this mode.
+
+#### register as buildin datasets
+
+You can register the usual datasets as buildin datasets
+
+- Step 1: Register Your Dataset
+
+Open the file: `rscoagent/training/data/config.py`
+
+Add a dictionary describing your dataset, including both the annotation file and the image root path:
+
+```python
+YOUR_DATASET = {
+    "annotation_path": "/absolute/path/to/your_dataset/annotations.json",
+    "data_path": "/absolute/path/to/your_dataset/images/",
+}
+```
+Then register it in data_dict:
+
+```python
+data_dict = {
+    "your_dataset": YOUR_DATASET,
+    # other pre-defined datasets...
+}
+```
+
+- Step 2: pass the name of your dataset to `--datasets`
+- You can pass multiple dataset names, a `ConcatDataset` may be built.
+- Use "dataset_name%N" to sample N% of the data.
+- For refgeo_* datasets, make sure the 'dataset_type' is set in data config.
+
+#### pass a json/yaml config file to `--datasets`
+
+You can also write a json/yaml config file to be a replacement of the data config.
+
 ### Interface
 
-Some options of the [training script](https://github.com/VisionXLab/RSCoVLM/blob/main/rscovlm/training/train.py):
+> Contact me in [issue](https://github.com/Li-Qingyun/mllm-mmrotate/issues) if there are questions.
 
-Some options of the [training script](https://github.com/VisionXLab/RSCoVLM/blob/main/rscovlm/eval/run.py):
+Some options of the [training script](https://github.com/VisionXLab/RSCoVLM/blob/main/rscovlm/training/train.py), you can see all in [params.py](https://github.com/VisionXLab/RSCoVLM/blob/main/rscovlm/training/params.py):
+
+- `datasets`, `image_folder`, `data_path`: data config, see [this instruction](https://github.com/VisionXLab/RSCoVLM/tree/main?tab=readme-ov-file#config-data)
+- `model_id`: provide the pretrained model path or name on huggingface hub.
+- `max_length`: max length for the language model.
+- `min_pixels` and `max_pixels`: to set the two parameters of Qwen image preprocessor. Note that it is the first version of min/max_pixels, not min/max patches.
+- `prob_random_resize`: to control the random resizing for dynamic resolution training.
+- `prob_proxy_prompt`: for the detection and grounding tasks, to control using diverse prompts.
+- `prob_plain_text_prompt`: for the detection and grounding tasks, to control using JSON format or using plain text format.
+- `keep_empty_gt`: for detection, to control whether to keep the samples that do not contain any objects in annotations. This is IMPORTANT.
+- ......
+
+Some options of the [training script](https://github.com/VisionXLab/RSCoVLM/blob/main/rscovlm/eval/run.py), you can see all in [params.py](https://github.com/VisionXLab/RSCoVLM/blob/main/rscovlm/eval/params.py):
+
+- `model_ckpt_path`: checkpoint path, you can pass multiple ckpt
+- `benchmarks`: which benchmarks to evaluate
+- `use_vllm`: whether using vLLM to accelerate inferencing
+- `save_path`: folder to save eval log and result
+- `eval_intermediate_checkpoints`: whether to eval intermediate checkpoints
+- `pass_evaluate`: only inference and dump results, do not evaluate the result. (because inference requires gpu, while evaluate does not)
+- `clip_num`: when you want to get results fast or visualize the results, you can clip the dataset.
+- `shuffle_seed`: seed for clip dataset.
+- ......
 
 ### Update to the latest version
 
@@ -89,6 +235,14 @@ pip install -e .
 Feel free to contact me through my email (21b905003@stu.hit.edu.cn) or [github issue](https://github.com/VisionXLab/RSCoVLM/issues). I'll continue to maintain this repo.
 
 The code is based on [Transformers](https://github.com/huggingface/transformers) and [MMRotate](https://github.com/open-mmlab/mmrotate). Many modules refer to [InternVL](https://github.com/OpenGVLab/InternVL) and [LLaVA](https://github.com/haotian-liu/LLaVA). The model architecture benefits from the open-source general-purpose vision-language model [Qwen-VL series](https://github.com/QwenLM/Qwen3-VL). Thanks for their brilliant works.
+
+Thanks for the following valuable resource for training Qwen2.5-VL:
+
+- [[sh](https://github.com/linkedin/Liger-Kernel/blob/main/examples/huggingface/run_qwen2_vl.sh) | [py](https://github.com/linkedin/Liger-Kernel/blob/main/examples/huggingface/training_multimodal.py)]: A demo script fine-tuning Qwen2-VL using HuggingFace-datasets-style dataset (cauldron) and SFTTrainer in HuggingFace-TRL codebase.
+- [[homepage](https://github.com/2U1/Qwen2-VL-Finetune) | [py](https://github.com/2U1/Qwen2-VL-Finetune/blob/master/src/training/train.py)]: A demo script fine-tuning Qwen2/2.5-VL using LLaVA-style dataset and Trainer in HuggingFace-transformers codebase.
+- [EfficiencyCallback](https://github.com/linkedin/Liger-Kernel/blob/main/examples/huggingface/callback.py#L92): A callback to track the efficiency of the training process. The tracked stats include: step time, memory, and throughput. It requires including `--include_num_input_tokens_seen` and `logging_steps=1` in the training arguments.
+- [Qwen2.5-VL official grounding cookbook](https://github.com/QwenLM/Qwen2.5-VL/blob/main/cookbooks/spatial_understanding.ipynb): A notebook of visual grounding with qwen2.5-vl.
+
 
 ## Citation
 
