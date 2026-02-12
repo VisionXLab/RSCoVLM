@@ -47,10 +47,10 @@ def convert_conversation(meta):
     return meta
 if __name__ == "__main__":
     llava_json_list = [
-        "/mnt/petrelfs/liqingyun/RSCoAgent/playground/data/vhm_sft_mix_qwen2_5_vl_conversations.json",
+        "playground/data/vhm_sft_mix_qwen2_5_vl_conversations.json",
     ]
     output_json_list = [
-        "/mnt/petrelfs/liqingyun/RSCoAgent/playground/data/msr_vhm_sft_mix_qwen2_5_vl_conversations.json"
+        "playground/data/msr_vhm_sft_mix_qwen2_5_vl_conversations.json"
     ]
     idx = 0
     for (json_file, out_json_file) in zip(llava_json_list, output_json_list):

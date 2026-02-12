@@ -40,14 +40,14 @@ def format2metainfo(input_json_path, output_jsonl_path, image_root):
 
 if __name__ == "__main__":
     input_json_list = [
-        "/mnt/petrelfs/liqingyun/RSCoAgent/playground/data/rs_caption/rs_caption_jsons/converted/cap_nwpu_caption_train.json",
-        "/mnt/petrelfs/liqingyun/RSCoAgent/playground/data/rs_caption/rs_caption_jsons/converted/cap_rsicd_train.json",
+        "playground/data/rs_caption/rs_caption_jsons/converted/cap_nwpu_caption_train.json",
+        "playground/data/rs_caption/rs_caption_jsons/converted/cap_rsicd_train.json",
     ]
     image_root_list = [
-        "/mnt/petrelfs/liqingyun/RSCoAgent/playground/data/NWPU-RESISC45",
-        "/mnt/petrelfs/liqingyun/RSCoAgent/playground/data/rs_caption/rsicd/RSICD_images"
+        "playground/data/NWPU-RESISC45",
+        "playground/data/rs_caption/rsicd/RSICD_images"
     ]
-    new_metainfo_dir = "/mnt/petrelfs/liqingyun/RSCoAgent/playground/data/rs_caption/metainfo_v2"
+    new_metainfo_dir = "playground/data/rs_caption/metainfo_v2"
     os.makedirs(new_metainfo_dir, exist_ok=True)
 
     metainfo_file_list = [
