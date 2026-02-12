@@ -48,7 +48,30 @@ For training rscovlm, firstly refer to [Data.md](Data.md) to prepare/download th
 > NOTE:
 > We support multi-nodes distributed training based on torchrun. If your resource platform is different and requires multi-nodes distributed training, you may need adapt the shell scripts to your platform. Or you can mult the node count to gradient_accumulation_steps option. Concat us in [issue](https://github.com/VisionXLab/RSCoVLM/issues) for more support.
 
-TODO: add instructions of practices and interfaces
+### Practices
+
+- train RSCoVLM for multi-task learning
+```bash
+bash scripts/train_multitask_7b.sh
+```
+
+- train RSCoVLM only for aerial detection
+```bash
+bash scripts/train_dota-poly-trainval512_3b.sh
+bash scripts/train_dota-poly-trainval512_7b.sh
+```
+> To be honest, the 3b model outperforms the 7b model. emmmm...
+
+- eval RSCoVLM for multiple benchmarks
+```bash
+bash scripts/eval.sh
+```
+
+### Interface
+
+Some options of the [training script](https://github.com/VisionXLab/RSCoVLM/blob/main/rscovlm/training/train.py):
+
+Some options of the [training script](https://github.com/VisionXLab/RSCoVLM/blob/main/rscovlm/eval/run.py):
 
 ### Update to the latest version
 
