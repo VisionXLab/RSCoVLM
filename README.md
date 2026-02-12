@@ -24,6 +24,8 @@
 
 This repo is a technical practice of using **R**emote **S**ensing data to **Co**llaboratively train Large **V**ision **L**anguage **M**odels and hosts the official implementation of the paper: **Co-Training Vision Language Models for Remote Sensing Multi-task Learning**.
 
+The official RSCoVLM was based on Qwen2.5-VL, we also support a version based on Qwen3-VL, you can checkout [`qwen3` branch](https://github.com/VisionXLab/RSCoVLM/tree/qwen3).
+
 ## Abstract
 
 <img width="3559" height="1512" alt="fig_method" src="https://github.com/user-attachments/assets/cb57f16c-9b9c-4f4c-beaa-86a6c2b1836b" />
