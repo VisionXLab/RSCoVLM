@@ -123,6 +123,13 @@ Thanks for the following valuable resource for training Qwen2.5-VL:
 
 Many thanks to the Chinese WeChat article: [遥感与深度学习:《最新论文 | RSCoVLM: 哈工大等提出支持常规和UHR遥感图像的统一VLM,  多任务多分辨率表现优异! 数据代码开源！》](https://mp.weixin.qq.com/s/LJlyWgYgHpqQB6qLlUSpXQ) and [地球洞察《【2025-12-01 论文精读】哈工大等推出RSCoVLM!》](https://mp.weixin.qq.com/s/peeQ8KR86LX0WxkLts_g7Q). There are many high-quality Chinese articles about latest remote sensing papers in their channel.
 
+## License
+
+This project is dual-licensed:
+
+- **Code**: MIT License - See [LICENSE](LICENSE)
+- **Datasets**: Creative Commons Attribution 4.0 International (CC-BY-4.0) - See [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0)
+
 ## Citation
 
 If you find our paper or benchmark helpful for your research, please consider citing our paper and giving this repo a star ⭐. Thank you very much!
